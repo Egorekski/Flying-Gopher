@@ -13,12 +13,11 @@ public class Main extends ApplicationAdapter {
     private Texture image;
     private float x = 0, y = 0;
     private float stepX = 7, stepY = 4;
-    private final float IMG_WIDTH = 378, IMG_HEIGHT = 63;
-
+    private final float IMG_WIDTH = 213, IMG_HEIGHT = 213;
     @Override
     public void create() {
         batch = new SpriteBatch();
-        image = new Texture("libgdx.png");
+        image = new Texture("gopher.png");
     }
 
     @Override
@@ -30,7 +29,7 @@ public class Main extends ApplicationAdapter {
 
         ScreenUtils.clear(0.15f, 0.15f, 0.2f, 1f);
         batch.begin();
-        batch.draw(image, x, y);
+        batch.draw(image, x, y, IMG_WIDTH, IMG_HEIGHT);
         batch.end();
     }
 
