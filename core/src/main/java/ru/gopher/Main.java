@@ -11,25 +11,24 @@ public class Main extends ApplicationAdapter {
     public static final float SCREEN_HEIGHT = 720;
     private SpriteBatch batch;
     private Texture image;
-    private float x = 0, y = 0;
-    private float stepX = 7, stepY = 4;
-    private final float IMG_WIDTH = 213, IMG_HEIGHT = 213;
+    Gopher gopher;
+
     @Override
     public void create() {
         batch = new SpriteBatch();
         image = new Texture("gopher.png");
+        gopher = new Gopher(0, 0, 7, 5);
     }
 
     @Override
     public void render() {
-        x += stepX;
-        y += stepY;
-        if (x > SCREEN_WIDTH - IMG_WIDTH || x < 0) stepX = -stepX;
-        if (y > SCREEN_HEIGHT - IMG_HEIGHT || y < 0) stepY = -stepY;
+        // actions with objects
+        gopher.fly();
 
+        // drawing
         ScreenUtils.clear(0.15f, 0.15f, 0.2f, 1f);
         batch.begin();
-        batch.draw(image, x, y, IMG_WIDTH, IMG_HEIGHT);
+        batch.draw(image, gopher.x, gopher.y, gopher.IMG_WIDTH, gopher.IMG_HEIGHT);
         batch.end();
     }
 
