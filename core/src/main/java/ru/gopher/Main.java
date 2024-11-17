@@ -10,15 +10,18 @@ public class Main extends ApplicationAdapter {
     public static final float SCREEN_WIDTH = 1280;
     public static final float SCREEN_HEIGHT = 720;
     private SpriteBatch batch;
-    private Texture image;
+    private Texture imgGopher;
+    private Texture imgBackground;
     Gopher[] gopher = new Gopher[2];
 
     @Override
     public void create() {
         batch = new SpriteBatch();
-        image = new Texture("gopher.png");
-        gopher[0] = new Gopher();
-        gopher[1] = new Gopher();
+        imgGopher = new Texture("gopher.png");
+        imgBackground = new Texture("google.png");
+        for (int i = 0; i < gopher.length; i++) {
+            gopher[i] = new Gopher(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2);
+        }
     }
 
     @Override
@@ -31,8 +34,9 @@ public class Main extends ApplicationAdapter {
         // drawing
         ScreenUtils.clear(0.15f, 0.15f, 0.2f, 1f);
         batch.begin();
+        batch.draw(imgBackground, SCREEN_WIDTH/2, SCREEN_HEIGHT/2, 213, 213);
         for (Gopher go : gopher) {
-            batch.draw(image, go.x, go.y, go.IMG_WIDTH, go.IMG_HEIGHT);
+            batch.draw(imgGopher, go.x, go.y, go.IMG_WIDTH, go.IMG_HEIGHT);
         }
         batch.end();
     }
@@ -40,6 +44,7 @@ public class Main extends ApplicationAdapter {
     @Override
     public void dispose() {
         batch.dispose();
-        image.dispose();
+        imgGopher.dispose();
+        imgBackground.dispose();
     }
 }

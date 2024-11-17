@@ -5,11 +5,13 @@ import static ru.gopher.Main.*;
 import com.badlogic.gdx.math.MathUtils;
 
 public class Gopher {
-    public float x = 0, y = 0;
-    public float stepX, stepY;
+    public float x, y;
+    private float stepX, stepY;
     public final float IMG_WIDTH = 213, IMG_HEIGHT = 213;
 
-    Gopher() {
+    Gopher(float x, float y) {
+        this.x = x;
+        this.y = y;
         stepX = MathUtils.random(-9, 9);
         stepY = MathUtils.random(-9, 9);
     }
