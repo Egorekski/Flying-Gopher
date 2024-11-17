@@ -36,7 +36,14 @@ public class Main extends ApplicationAdapter {
         batch.begin();
         batch.draw(imgBackground, SCREEN_WIDTH/2, SCREEN_HEIGHT/2, 213, 213);
         for (Gopher go : gopher) {
-            batch.draw(imgGopher, go.x, go.y, go.IMG_WIDTH, go.IMG_HEIGHT);
+            batch.draw(
+                imgGopher,
+                go.x, go.y,
+                go.IMG_WIDTH, go.IMG_HEIGHT,
+                0, 0,
+                213, 213,
+                go.isFlip(), false
+                );
         }
         batch.end();
     }

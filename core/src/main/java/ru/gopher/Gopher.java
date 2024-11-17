@@ -9,7 +9,7 @@ public class Gopher {
     private float stepX, stepY;
     public final float IMG_WIDTH = 213, IMG_HEIGHT = 213;
 
-    Gopher(float x, float y) {
+    public Gopher(float x, float y) {
         this.x = x;
         this.y = y;
         stepX = MathUtils.random(-9, 9);
@@ -21,5 +21,9 @@ public class Gopher {
         y += stepY;
         if (x > SCREEN_WIDTH - IMG_WIDTH || x < 0) stepX = -stepX;
         if (y > SCREEN_HEIGHT - IMG_HEIGHT || y < 0) stepY = -stepY;
+    }
+
+    public boolean isFlip() {
+        return !(stepX < 0);
     }
 }
