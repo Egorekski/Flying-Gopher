@@ -2,16 +2,16 @@ package ru.gopher;
 
 import static ru.gopher.Main.*;
 
+import com.badlogic.gdx.math.MathUtils;
+
 public class Gopher {
-    public float x, y;
-    public float stepX = 7, stepY = 4;
+    public float x = 0, y = 0;
+    public float stepX, stepY;
     public final float IMG_WIDTH = 213, IMG_HEIGHT = 213;
 
-    Gopher(float x, float y, float stepX, float stepY) {
-        this.x = x;
-        this.y = y;
-        this.stepX = stepX;
-        this.stepY = stepY;
+    Gopher() {
+        stepX = MathUtils.random(-9, 9);
+        stepY = MathUtils.random(-9, 9);
     }
 
     public void fly() {
